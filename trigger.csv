@@ -1,0 +1,10 @@
+aws --endpoint-url=http://localhost:4566 s3api put-bucket-notification-configuration \
+  --bucket csv-upload-bucket \
+  --notification-configuration '{
+    "LambdaFunctionConfigurations": [
+      {
+        "LambdaFunctionArn": "arn:aws:lambda:us-east-1:000000000000:function:CsvProcessingFunction",
+        "Events": ["s3:ObjectCreated:*"]
+      }
+    ]
+  }'
