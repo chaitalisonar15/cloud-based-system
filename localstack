@@ -1,0 +1,7 @@
+zip function.zip lambda_function.py
+aws --endpoint-url=http://localhost:4566 lambda create-function \
+  --function-name CsvProcessingFunction \
+  --runtime python3.8 \
+  --role arn:aws:iam::000000000000:role/lambda-role \
+  --handler lambda_function.lambda_handler \
+  --zip-file fileb://function.zip
